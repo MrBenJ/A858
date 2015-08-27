@@ -16,11 +16,9 @@ public class Main {
         encryptedString = encryptedString.replaceAll("\\s","");
 
         cipher.init(Cipher.DECRYPT_MODE,myKey);
-        byte[] decrypted = cipher.doFinal(hexToBytes(encryptedString));
+        byte[] decrypted = cipher.doFinal(hexToBytes(encryptedString)); // Buffering exception here
         String decryptedString = bytesToHex(decrypted);
         System.out.println(new String(decrypted) + " " + decryptedString + " " + Arrays.toString(decrypted));
-
-
     }
 
     public static byte[] hexToBytes(String str) {
