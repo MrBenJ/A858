@@ -25,19 +25,17 @@ public class Main {
     }
 
     public static byte[] hexToBytes(String str) {
-        if (str == null) {
+        if (str == null || str.length() < 2) {
             return null;
-        } else if (str.length() < 2) {
-            return null;
-        } else {
+        }
+        else {
             int len = str.length() / 2;
             byte[] buffer = new byte[len];
             for (int i = 0; i < len; i++) {
-                buffer[i] = (byte) Integer.parseInt(str.substring(i * 2, i * 2 + 2), 16);
+                buffer[i] = (byte) Integer.parseInt(str.substring(i * 2, i * 2 + 2), 16); // NumberFormatException
             }
             return buffer;
         }
-
     }
 
     public static String bytesToHex(byte[] data) {
