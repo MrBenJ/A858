@@ -24,7 +24,7 @@ if (open(my $fh, '<', $filename)) {
     my $group3 = substr($binvalue,10,5);
 
     print "$group1 "."$group2 "."$group3\n";
-    print "$group1 "."$group2 "."$group3\n";
+    print $fr "$group1 "."$group2 "."$group3\n";
   }
 } else {
   warn "Could not open file '$filename' $!";
